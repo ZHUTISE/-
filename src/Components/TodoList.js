@@ -40,7 +40,6 @@ function TodoList({ todos, setTodos }) {
 
   function removeTodo(id) {
     setTodos(todos.filter((todo) => todo.id !== id));
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
   }
   return (
     <div>
