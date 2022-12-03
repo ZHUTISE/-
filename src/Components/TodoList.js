@@ -3,10 +3,12 @@ import { List, TextField } from "@material-ui/core";
 import { Button, Box, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 import EditTodoForm from "../Components/EditTodoForm"
 import Todo from "./Todo";
+import { toBeInTheDocument } from "@testing-library/jest-dom/dist/matchers";
+const LOCAL_STORAGE_KEY = "react-todo-list-todos"; 
 
 function TodoList({ todos, setTodos }) {
 
-  const [todoDate, setTodoDate] = useState(new Date().toISOString().slice(0, 10)); 
+  const [todoDate, setTodoDate] = useState(""); 
 
   const [openDialog, setOpenDialog] = React.useState(false);
 
@@ -38,7 +40,6 @@ function TodoList({ todos, setTodos }) {
   function removeTodo(id) {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
-
   return (
     <Box sx={{ mt: 2 }}>
       <Dialog open={openDialog} onClose={handleCloseDialog}>
@@ -70,25 +71,23 @@ function TodoList({ todos, setTodos }) {
           onChange={(e) => setTodoDate(e.target.value)}
         />
 
-        {
-          todos
-          .filter((todo) => (
-            todo.date == todoDate
-          ))
-          .map((todo) => (
-            <Box sx={{ mt: 2 }}>
-              <Todo
-                key={todo.id}
-                todo={todo}
-                removeTodo={removeTodo}
-                toggleComplete={toggleComplete}
-                handleOpenDialog={handleOpenDialog}
-              />
-            </Box>
-          ))
-        }
-      </List>
-    </Box>
+      {
+        todos
+        .filter((todo) => (
+          todo.date === (todoDate !== "" ? todoDate : todo.date)
+        ))
+        .map((todo) => (
+          <Todo
+            key={todo.id}
+            todo={todo}
+            removeTodo={removeTodo}
+            toggleComplete={toggleComplete}
+            handleOpenDialog={handleOpenDialog}
+          />
+        ))
+      }
+    </List>
+    </div>
   );
 }
 
