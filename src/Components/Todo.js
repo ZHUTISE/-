@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Checkbox, Button, ListItem, Typography } from "@material-ui/core";
-import { Card, CardContent, CardActions, Chip, Stack } from '@mui/material';
+import { Box, Card, CardContent, CardActions, Chip, Stack } from '@mui/material';
 
 function Todo({ todo, toggleComplete, removeTodo, handleOpenDialog }) {
 
@@ -17,20 +17,16 @@ function Todo({ todo, toggleComplete, removeTodo, handleOpenDialog }) {
   }
 
   return (
-    <Card
-      sx={{ marginTop: 1}}
-    >
+    <Card>
       <CardContent>
         <Stack direction="row" spacing={1}>
           <Chip label={todo.date? todo.date : 'no Date'} />
           <Chip label={todo.endDate? todo.endDate : 'no endDate'} />
           <Chip label={todo.author? todo.author : 'no Author'} />
         </Stack>
-        <Typography
-          sx={{ marginTop: 10}}
-        >
-          {todo.task}
-        </Typography>
+        <Box sx={{ mt: 2}}>
+          <Typography>{todo.task}</Typography>
+        </Box>
       </CardContent>
       <CardActions>
         <Stack direction="row" spacing={1}>
@@ -63,5 +59,3 @@ function Todo({ todo, toggleComplete, removeTodo, handleOpenDialog }) {
 }
 
 export default Todo;
-
-//TODO: сделать редактирование удаление
