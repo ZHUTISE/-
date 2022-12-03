@@ -65,6 +65,7 @@ function TodoList({ todos, setTodos }) {
       <List 
         alignItems="center"
       >
+        <Box sx={{ textAlign: "center" }}>
         <TextField
           name="startDate"
           label="Выбор даты"
@@ -89,6 +90,7 @@ function TodoList({ todos, setTodos }) {
           />
         ))
       }
+      </Box>
     </List>
     </Box>
   );

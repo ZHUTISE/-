@@ -17,7 +17,7 @@ function Todo({ todo, toggleComplete, removeTodo, handleOpenDialog }) {
   }
 
   return (
-    <Card>
+    <Card sx={{ mt: 1, width: "100%", maxWidth: 500 }}>
       <CardContent>
         <Stack direction="row" spacing={1}>
           <Chip label={todo.date? todo.date : 'no Date'} />
