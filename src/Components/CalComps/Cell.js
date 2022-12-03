@@ -4,9 +4,9 @@ import moment from 'moment';
 
 const colors= ['#ADFF2F', '#FFFF00', '#00FFFF', '#FFC0CB', '#00FF7F', '#F0E68C', '#008000', '#FF1493', '#FFFFFF', '#D2691E'];
 export default function Cell(props){
-  const handleCellClick = (ev)=>{
+  const handleCellClick = ()=>{
     window.location="/AllTasks"
-    console.log(ev.target)
+    
   }
   const startDay = props.today.clone().startOf('month').startOf('week');
   const day = startDay.clone();
@@ -41,7 +41,7 @@ export default function Cell(props){
              
              {
                props.tasks
-               .filter((t, i) =>  t.date <=dayItem.format('X') && t.endDate >=dayItem.format('X'))
+               .filter((t, i) =>  (t.date <=dayItem.format('YYYY-MM-DD') && t.endDate >=dayItem.format('YYYY-MM-DD')) || (t.endDate ==="" && t.date ===dayItem.format('YYYY-MM-DD')  ))
                .map(t=>(
                  <LiWrapper key={t.id} color={colors[t.id%10]} >{t.title}</LiWrapper>
                ))

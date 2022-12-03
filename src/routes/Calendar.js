@@ -29,22 +29,22 @@ export default function Calendar() {
   //you can delete them if do not need them
   let task ={
     id: 1,
-    date: 1668038400,
-    endDate: 1669680000,
+    date: "2022-12-15",
+    endDate: "2022-12-31",
     task: "task1",
     conleted: false
   }
   let task2 ={
     id: 2,
-    date: 1668470400	,
-    endDate:  1670198400,
+    date: "2022-12-13",
+    endDate:  "2022-12-14",
     task: "task1",
     conleted: false
   }
   let task3 ={
     id: 3,
-    date: 1669470400,
-    endDate:  1680198400,
+    date: '2022-12-05',
+    endDate:  "",
     task: "task1",
     conleted: false
   }
@@ -57,7 +57,10 @@ export default function Calendar() {
     if (key!=="running" && key!=="__test__")
       tasks.push(JSON.parse(localStorage.getItem(key)))
   }
-  const tasks2 = tasks.filter(t => (t.date > startDay.format('X') && t.date < endDay.format('X')) || (t.endDate> startDay.format('X') && t.endDate < endDay.format('X')))
+  const tasks2 = tasks.filter(t => 
+    (t.date >= startDay.format('YYYY-MM-DD') && t.date <= endDay.format('YYYY-MM-DD')) ||
+    (t.endDate>= startDay.format('YYYY-MM-DD') && t.endDate <= endDay.format('YYYY-MM-DD')) || 
+    (t.endDate ==="" && t.date >=startDay.format('YYYY-MM-DD') && t.date<=endDay.format('YYYY-MM-DD')) )
   return (
   <div>
     <ShadowWrapper>
@@ -68,4 +71,5 @@ export default function Calendar() {
    </div>
   );
 }
+
 
