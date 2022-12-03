@@ -35,7 +35,7 @@ function App() {
     },
     {
       path: "/Calendar",
-      element: <Calendar  />
+      element: <Calendar todos={todos} />
     },
     {
       path: "/AllTasks",

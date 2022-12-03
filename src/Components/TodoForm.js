@@ -32,7 +32,7 @@ function TodoForm({ todos, setTodos }) {
     e.preventDefault();
     if (todo.task.trim()) {
       addTodo({ ...todo, id: uuid() });
-      setTodo({ ...todo, task: "", userid: "" });
+      setTodo({ ...todo, task: "", date: "", endDate: ""});
     }
   }
   return (
@@ -56,7 +56,7 @@ function TodoForm({ todos, setTodos }) {
           type="date"
           fullWidth="true"
           name="task"
-          value={todo.userid}
+          value={todo.date}
           onChange={handleTaskInputChangedate1}
         />
       </div>
@@ -70,7 +70,7 @@ function TodoForm({ todos, setTodos }) {
           fullWidth="true"
           preventDefault="none"
           name="task"
-          value={todo.userid}
+          value={todo.endDate}
           onChange={handleTaskInputChangedate2}
         />
       </div>

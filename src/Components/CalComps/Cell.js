@@ -41,7 +41,7 @@ export default function Cell(props){
              
              {
                props.tasks
-               .filter((t, i) =>  t.date <=dayItem.format('X') && t.endDate >=dayItem.format('X'))
+               .filter((t, i) =>  t.date <=dayItem.format('YYYY-MM-DD') && t.endDate >=dayItem.format('YYYY-MM-DD'))
                .map(t=>(
                  <LiWrapper key={t.id} color={colors[t.id%10]} >{t.title}</LiWrapper>
                ))

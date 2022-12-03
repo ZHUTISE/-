@@ -4,10 +4,12 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/
 import CloseIcon from "@mui/material";
 import EditTodoForm from "../Components/EditTodoForm"
 import Todo from "./Todo";
+import { toBeInTheDocument } from "@testing-library/jest-dom/dist/matchers";
+const LOCAL_STORAGE_KEY = "react-todo-list-todos"; 
 
 function TodoList({ todos, setTodos }) {
 
-  const [todoDate, setTodoDate] = useState(new Date().toISOString().slice(0, 10)); 
+  const [todoDate, setTodoDate] = useState(""); 
 
   const [openDialog, setOpenDialog] = React.useState(false);
 
@@ -38,8 +40,8 @@ function TodoList({ todos, setTodos }) {
 
   function removeTodo(id) {
     setTodos(todos.filter((todo) => todo.id !== id));
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
   }
-
   return (
     <div>
     <Dialog open={openDialog} onClose={handleCloseDialog}>
@@ -74,7 +76,7 @@ function TodoList({ todos, setTodos }) {
       {
         todos
         .filter((todo) => (
-          todo.date === todoDate
+          todo.date === (todoDate !== "" ? todoDate : todo.date)
         ))
         .map((todo) => (
           <Todo
