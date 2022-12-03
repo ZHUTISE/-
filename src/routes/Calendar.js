@@ -24,7 +24,6 @@ export default function Calendar( {todos} ) {
   const handleMonthChange = (newDay) => {
     setToday(newDay)
   }
-
   return (
   <div>
     <ShadowWrapper>
@@ -35,4 +34,5 @@ export default function Calendar( {todos} ) {
    </div>
   );
 }
+
 
