@@ -67,8 +67,8 @@ function TodoList({ todos, setTodos }) {
       >
         <TextField
           name="startDate"
-          label="Выбрать дату"
-          InputLabelProps={{ shrink: true, required: true }}
+          label="Выбор даты"
+          InputLabelProps={{ shrink: true}}
           type="date"
           value={todoDate}
           onChange={(e) => setTodoDate(e.target.value)}

@@ -43,14 +43,14 @@ function Todo({ todo, toggleComplete, removeTodo, handleOpenDialog }) {
                 backgroundColor: "#1976d2",
               }}
             >
-              Задача сделана
+              Выполнено
             </Button>
           }
           <Button onClick={handleEditTodo}>
             Редактировать
           </Button>
           <Button onClick={handleRemoveClick}>
-            Закрыть задачу
+            Удалить задачу
           </Button>
         </Stack>
       </CardActions>

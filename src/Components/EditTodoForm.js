@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
+import { Box } from "@mui/system";
 import { v4 as uuid } from "uuid";
 
 function EditTodoForm({ editTodo, todos, setTodos }) {
@@ -29,7 +30,12 @@ function EditTodoForm({ editTodo, todos, setTodos }) {
   }
   
   return (
-    <form id="form" className="todo-form" onSubmit={handleSubmit} >
+    <Box
+    sx={{
+      '& .MuiTextField-root': { m: 1, width: '25ch' },
+    }}
+  >
+    <form id="form" className="todo-form" onSubmit={handleSubmit}>
       <div>
         <TextField
           label="Задача"
@@ -67,6 +73,7 @@ function EditTodoForm({ editTodo, todos, setTodos }) {
         />
       </div>
     </form>
+    </Box>
   );
 }
 

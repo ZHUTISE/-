@@ -1,5 +1,6 @@
 import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
+import { Box } from "@mui/system";
 import { v4 as uuid } from "uuid";
 
 function TodoForm({ todos, setTodos }) {
@@ -36,10 +37,15 @@ function TodoForm({ todos, setTodos }) {
     }
   }
   return (
+    <Box
+    sx={{
+      '& .MuiTextField-root': { m: 1, width: '25ch' },
+    }}
+  >
     <form id="form" className="todo-form" onSubmit={handleSubmit}>
       <div>
         <TextField
-          label="Опишите задачу, укажите требуемые время и дату"
+          label="Опишите задачу"
           type="text"
           fullWidth="true"
           name="task"
@@ -75,6 +81,7 @@ function TodoForm({ todos, setTodos }) {
         />
       </div>
     </form>
+    </Box>
   );
 }
 
