@@ -1,9 +1,9 @@
 import * as React from "react";
 import {
   DivWrapper,
-  ButtonWrapper,
   TitleWrapper
 } from "./CalendarWrappers";
+import { Button } from "@mui/material";
 
 const months = [
   "Январь",
@@ -29,20 +29,20 @@ export default function MonthChanger(props) {
   return (
     <DivWrapper>
       <DivWrapper>
-        <ButtonWrapper id="prev" onClick={handlePrevClick}>
+        <Button id="prev" onClick={handlePrevClick} variant="outlined">
           {" "}
-          &lt;{" "}
-        </ButtonWrapper>
+          Предыдущий{" "}
+        </Button>
       </DivWrapper>
       <DivWrapper>
         <TitleWrapper>{months[props.today.get("M")]}</TitleWrapper>
         <TitleWrapper>{props.today.format("YYYY")}</TitleWrapper>
       </DivWrapper>
       <DivWrapper>
-        <ButtonWrapper id="next" onClick={handleNextClick}>
+        <Button id="next" onClick={handleNextClick} variant="outlined">
           {" "}
-          &gt;{" "}
-        </ButtonWrapper>
+          Следующий{" "}
+        </Button>
       </DivWrapper>
     </DivWrapper>
   );

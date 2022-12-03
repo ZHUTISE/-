@@ -12,6 +12,8 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { useContext } from 'react';
+import { Context } from "./Context";
 
 import TodoForm from "./TodoForm";
 //Панель навигации с кнопками: "Книжечка", "Календарь", "Все задания"
@@ -21,6 +23,7 @@ import TodoForm from "./TodoForm";
 
 export default function NavigationBar({ todos, setTodos }) {
   const [open, setOpen] = React.useState(false);
+  const {setTodoDate} = useContext(Context)
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -78,6 +81,9 @@ export default function NavigationBar({ todos, setTodos }) {
             <Button
               key="AllTasks"
               sx={{ my: 2, color: "white", display: "block" }}
+              onClick={() => {
+                setTodoDate("");
+              }}
               href="/AllTasks"
             >
               Все задачи

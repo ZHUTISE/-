@@ -26,11 +26,9 @@ export default function Calendar( {todos} ) {
   }
   return (
   <div>
-    <ShadowWrapper>
     <DatesPicker today={today} onWork={handleDayChange}/>
     <MonthChanger today={today} onWork={handleMonthChange}/>
       <Cell today={today} tasks={todos}/>
-   </ShadowWrapper>
    </div>
   );
 }

@@ -1,12 +1,18 @@
 import React from 'react';
 import { DayOfWeekWrapper, EventListWrapper, LiWrapper, ShowDayWrapper, PreviousMonthWrapper, GridWrapper, CellWrapper, CellRow, DayWrapper, CurrentDayWrapper} from './CalendarWrappers';
 import moment from 'moment';
+import { Context } from '../Context';
+import { useContext } from 'react';
+import { toBeDisabled } from '@testing-library/jest-dom/dist/matchers';
 
 const colors= ['#ADFF2F', '#FFFF00', '#00FFFF', '#FFC0CB', '#00FF7F', '#F0E68C', '#008000', '#FF1493', '#FFFFFF', '#D2691E'];
 export default function Cell(props){
-  const handleCellClick = ()=>{
+
+  const {setTodoDate} = useContext(Context)
+
+  const handleCellClick = (dayItem)=>{
+    setTodoDate(dayItem.format('YYYY-MM-DD'))
     window.location="/AllTasks"
-    
   }
   const startDay = props.today.clone().startOf('month').startOf('week');
   const day = startDay.clone();
@@ -27,8 +33,10 @@ export default function Cell(props){
        daysArray.map((dayItem)=>(
          <CellWrapper
          key={dayItem.format('DDMMYYYY')}
-         isWeekend={dayItem.day()===6 || dayItem.day()===0} onClick={handleCellClick}>
-           
+         isWeekend={dayItem.day()===6 || dayItem.day()===0}
+         onClick = {function () {handleCellClick(dayItem)}}
+         >
+
          <CellRow justifyContent={'flex-end'}>
            <ShowDayWrapper>
          <DayWrapper>
@@ -41,9 +49,9 @@ export default function Cell(props){
              
              {
                props.tasks
-               .filter((t, i) =>  (t.date <=dayItem.format('YYYY-MM-DD') && t.endDate >=dayItem.format('YYYY-MM-DD')) || (t.endDate ==="" && t.date ===dayItem.format('YYYY-MM-DD')  ))
+               .filter((t, i) =>  (t.date <=dayItem.format('YYYY-MM-DD') && t.endDate >=dayItem.format('YYYY-MM-DD')) || (t.endDate ==="" && t.date === dayItem.format('YYYY-MM-DD')  ))
                .map(t=>(
-                 <LiWrapper key={t.id} color={colors[t.id%10]} >{t.title}</LiWrapper>
+                 <LiWrapper key={t.id} color={colors[t.id.toString(16) + '000000']}>{t.title}</LiWrapper>
                ))
              }
            </EventListWrapper>
