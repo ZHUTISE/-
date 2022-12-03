@@ -16,14 +16,16 @@ function App() {
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || []); //
 
   useEffect(() => {
-    const storageTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    const storageTodos = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (storageTodos) {
-      setTodos(storageTodos);
+      setTodos(JSON.parse(storageTodos));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
+      if(todos.length !== 0) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
+      }
   }, [todos]);
 
   const router = createBrowserRouter([
@@ -33,7 +35,7 @@ function App() {
     },
     {
       path: "/Calendar",
-      element: <Calendar />
+      element: <Calendar  />
     },
     {
       path: "/AllTasks",
