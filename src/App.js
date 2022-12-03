@@ -13,7 +13,7 @@ const LOCAL_STORAGE_KEY = "react-todo-list-todos"; //
 
 
 function App() {
-  const [todos, setTodos] = useState([]); //
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || []); //
 
   useEffect(() => {
     const storageTodos = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -23,9 +23,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-      if(todos.length !== 0) {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
-      }
   }, [todos]);
 
   const router = createBrowserRouter([
