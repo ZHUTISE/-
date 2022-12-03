@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { List, TextField } from "@material-ui/core";
+import { List, TextField } from "@mui/material";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
-import CloseIcon from "@material-ui/icons/Close";
+import CloseIcon from "@mui/material";
 import EditTodoForm from "../Components/EditTodoForm"
 import Todo from "./Todo";
 
@@ -74,7 +74,7 @@ function TodoList({ todos, setTodos }) {
       {
         todos
         .filter((todo) => (
-          todo.date == todoDate
+          todo.date === todoDate
         ))
         .map((todo) => (
           <Todo

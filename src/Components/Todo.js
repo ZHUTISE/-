@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Checkbox, Button, ListItem, Typography } from "@material-ui/core";
+import { Checkbox, Button, ListItem, Typography } from "@mui/material";
 import { Card, CardContent, CardActions, Chip, Stack } from '@mui/material';
 
 function Todo({ todo, toggleComplete, removeTodo, handleOpenDialog }) {
