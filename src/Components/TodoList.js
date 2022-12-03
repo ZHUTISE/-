@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { List, TextField } from "@material-ui/core";
+import { List, TextField } from "@mui/material";
 import { Button, Box, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 import EditTodoForm from "../Components/EditTodoForm"
 import Todo from "./Todo";
@@ -87,7 +87,7 @@ function TodoList({ todos, setTodos }) {
         ))
       }
     </List>
-    </div>
+    </Box>
   );
 }
 
