@@ -5,7 +5,7 @@ import TodoList from "../Components/TodoList";
 import removeTodo from "../App";
 import toggleComplete from "../App";
 
-export default function AllTasks({ todos, setTodos }) {
+export default function ({ todos, setTodos }) {
 
   return (
     <div class="todo-list-wrapper">

@@ -1,5 +1,6 @@
-import { Button, TextField } from "@material-ui/core";
+import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
+import { Box } from "@mui/system";
 import { v4 as uuid } from "uuid";
 
 function TodoForm({ todos, setTodos }) {
@@ -32,14 +33,19 @@ function TodoForm({ todos, setTodos }) {
     e.preventDefault();
     if (todo.task.trim()) {
       addTodo({ ...todo, id: uuid() });
-      setTodo({ ...todo, task: "", userid: "" });
+      setTodo({ ...todo, task: "", date: "", endDate: ""});
     }
   }
   return (
+    <Box
+    sx={{
+      '& .MuiTextField-root': { m: 1, width: '25ch' },
+    }}
+  >
     <form id="form" className="todo-form" onSubmit={handleSubmit}>
       <div>
         <TextField
-          label="Опишите задачу, укажите требуемые время и дату"
+          label="Опишите задачу"
           type="text"
           fullWidth="true"
           name="task"
@@ -56,7 +62,7 @@ function TodoForm({ todos, setTodos }) {
           type="date"
           fullWidth="true"
           name="task"
-          value={todo.userid}
+          value={todo.date}
           onChange={handleTaskInputChangedate1}
         />
       </div>
@@ -70,11 +76,12 @@ function TodoForm({ todos, setTodos }) {
           fullWidth="true"
           preventDefault="none"
           name="task"
-          value={todo.userid}
+          value={todo.endDate}
           onChange={handleTaskInputChangedate2}
         />
       </div>
     </form>
+    </Box>
   );
 }
 
