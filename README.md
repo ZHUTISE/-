@@ -1,29 +1,8 @@
 Панель навигации выполнена с помощью:
-Инструкция по react-router-dom https://reactrouter.com/en/main/start/tutorial
-Инструкция по компонентам mui https://mui.com/material-ui/getting-started/overview/
+react-router-dom https://reactrouter.com/en/main/start/tutorial
+mui https://mui.com/material-ui/getting-started/overview/
 
 Кнопки: "Книжечка", "Календарь", "Все задания"
 Книжечка открывает форму для создания новой задачи
 Календарь на /Calendar (scheduler/src/routes/Calendar)
 Все задания на /AllTasks (scheduler/src/routes/AllTasks)
-
-Задачи:
-
->Создать класс задачи
-
-/NavigationBar
->Составить форму и заставить её формировать задачи в localStorage (Придумать как вынести форму в отдельный компонент)
-Выбор даты, времени с помощью Date / Time pickers
-Постановка задачи с помощью input? 
-Всё это с помощью state?...
-Возможно перенести это функционал с книжечки на Floating Action Button, которая будет отображаться на всех страницах
-
-/AllTasks
->Заставить отображаться все задачи на отдельной странице, упорядоченные по датам и времени
-
-/Calendar
->Заставить отображаться календарь по месяцам, выделять числа в которых есть задачи.
->Заставить отображаться календарь с расписанием по часам по клику на конкретное число.
-
-/
->Придумать что отображать на этой странице.
