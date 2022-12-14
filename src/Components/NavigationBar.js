@@ -6,14 +6,13 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import BookOutlined from "@mui/icons-material/BookOutlined";
-import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useContext } from 'react';
 import { Context } from "./Context";
+import PlaylistAddOutlinedIcon from '@mui/icons-material/PlaylistAddOutlined';
 
 import TodoForm from "./TodoForm";
 //Панель навигации с кнопками: "Книжечка", "Календарь", "Все задания"
@@ -46,6 +45,7 @@ export default function NavigationBar({ todos, setTodos }) {
             onClick={handleClickOpen}
           >
             <BookOutlined />
+            <PlaylistAddOutlinedIcon />
           </IconButton>
 
           <Dialog open={open} onClose={handleClose}>

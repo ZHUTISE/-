@@ -1,11 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { List, TextField } from "@mui/material";
 import { Button, Box, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 import EditTodoForm from "../Components/EditTodoForm"
 import Todo from "./Todo";
-import { toBeInTheDocument } from "@testing-library/jest-dom/dist/matchers";
 import { Context } from "./Context";
-const LOCAL_STORAGE_KEY = "react-todo-list-todos"; 
 
 function TodoList({ todos, setTodos }) {
 
@@ -78,8 +76,11 @@ function TodoList({ todos, setTodos }) {
       {
         todos
         .filter((todo) => (
-          todo.date === (todoDate !== "" ? todoDate : todo.date)
+          ((todo.date === (todoDate !== "" ? todoDate : todo.date)) || (todo.date <= (todoDate !== "" ? todoDate : todo.date) && todo.endDate >= (todoDate !== "" ? todoDate : todo.date) ))
         ))
+        // .filter((todo) => (
+        //   todo.date === (todoDate !== "" ? todoDate : todo.date)
+        // ))
         .map((todo) => (
           <Todo
             key={todo.id}

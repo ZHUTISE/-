@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import React, { useState } from "react";
 import { Box } from "@mui/system";
 import { v4 as uuid } from "uuid";
@@ -31,7 +31,7 @@ function TodoForm({ todos, setTodos }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (todo.task.trim()) {
+    if (todo.task.trim() && ((todo.date <= todo.endDate)|| (!todo.endDate))) {
       addTodo({ ...todo, id: uuid() });
       setTodo({ ...todo, task: "", date: "", endDate: ""});
     }
@@ -68,7 +68,7 @@ function TodoForm({ todos, setTodos }) {
       </div>
       <div>
         <TextField
-          label="Дата конца"
+          label="Дата окончания"
           InputLabelProps={{
             shrink: true
           }}

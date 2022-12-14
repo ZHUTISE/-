@@ -3,7 +3,6 @@ import { DayOfWeekWrapper, EventListWrapper, LiWrapper, ShowDayWrapper, Previous
 import moment from 'moment';
 import { Context } from '../Context';
 import { useContext } from 'react';
-import { toBeDisabled } from '@testing-library/jest-dom/dist/matchers';
 
 const colors= ['#ADFF2F', '#FFFF00', '#00FFFF', '#FFC0CB', '#00FF7F', '#F0E68C', '#008000', '#FF1493', '#FFFFFF', '#D2691E'];
 export default function Cell(props){

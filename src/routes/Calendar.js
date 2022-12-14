@@ -1,7 +1,6 @@
 import React from 'react';
 import DatesPicker from '../Components/CalComps/DatesPicker';
 import MonthChanger from '../Components/CalComps/MonthChanger';
-import { ShadowWrapper} from '../Components/CalComps/CalendarWrappers';
 import moment from 'moment';
 import Cell from '../Components/CalComps/Cell';
 

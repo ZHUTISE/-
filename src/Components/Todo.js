@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { Checkbox, Button, ListItem, Typography } from "@mui/material";
+import React from "react";
+import { Button, Typography } from "@mui/material";
 import { Box, Card, CardContent, CardActions, Chip, Stack } from '@mui/material';
 
 function Todo({ todo, toggleComplete, removeTodo, handleOpenDialog }) {
@@ -20,9 +20,8 @@ function Todo({ todo, toggleComplete, removeTodo, handleOpenDialog }) {
     <Card sx={{ mt: 1, width: "100%", maxWidth: 500 }}>
       <CardContent>
         <Stack direction="row" spacing={1}>
-          <Chip label={todo.date? todo.date : 'no Date'} />
-          <Chip label={todo.endDate? todo.endDate : 'no endDate'} />
-          <Chip label={todo.author? todo.author : 'no Author'} />
+          <Chip label={todo.date? todo.date : 'Глобальная задача'} disabled={todo.date? false : true} />
+          <Chip label={todo.endDate? todo.endDate : 'Дата окончания отсутствует'} disabled={todo.endDate? false : true}/>
         </Stack>
         <Box sx={{ mt: 2}}>
           <Typography>{todo.task}</Typography>
@@ -33,7 +32,7 @@ function Todo({ todo, toggleComplete, removeTodo, handleOpenDialog }) {
           {
             !todo.completed ?
             <Button onClick={handleCheckboxClick}>
-              Отметить задачу
+              Отметить
             </Button>
             :
             <Button 

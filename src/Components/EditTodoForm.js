@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { Box } from "@mui/system";
-import { v4 as uuid } from "uuid";
 
 function EditTodoForm({ editTodo, todos, setTodos }) {
   const [todo, setTodo] = useState(editTodo);
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (todo.task.trim() && ((todo.date <= todo.endDate)|| (!todo.endDate))){
     setTodos(
       todos.map((item) => {
         if(item.id === todo.id)
@@ -16,6 +16,7 @@ function EditTodoForm({ editTodo, todos, setTodos }) {
           };
         })
     );
+      }
   }
 
   function handleTaskInputChangetask(e) {
@@ -61,7 +62,7 @@ function EditTodoForm({ editTodo, todos, setTodos }) {
       </div>
       <div>
         <TextField
-          label="Дата конца"
+          label="Дата окончания"
           InputLabelProps={{
             shrink: true
           }}
