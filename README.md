@@ -6,3 +6,5 @@ mui https://mui.com/material-ui/getting-started/overview/
 Книжечка открывает форму для создания новой задачи
 Календарь на /Calendar (scheduler/src/routes/Calendar)
 Все задания на /AllTasks (scheduler/src/routes/AllTasks)
+
+Deploy https://zhts.netlify.app/
