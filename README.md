@@ -1,3 +1,6 @@
+Коллективное творчество в рамках курса Сase lab JavaScript junior
+АО «Гринатом» Госкорпорации «Росатом»
+
 Панель навигации выполнена с помощью:
 react-router-dom https://reactrouter.com/en/main/start/tutorial
 mui https://mui.com/material-ui/getting-started/overview/
